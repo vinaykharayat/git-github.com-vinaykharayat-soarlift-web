@@ -57,7 +57,7 @@
 								<div class="col-md-4 col-xs-3 col-sm-4 sec numbers" id="dsec"></div>
 							</div>
 							<div class="col-md-12 counter2 text-center" id="spacer2">
-								<div class="col-md-4 col-xs-3 col-sm-4 day title" id="days">day</div>
+								<div class="col-md-4 col-xs-3 col-sm-4 day title" id="days">days</div>
 								<div class="col-md-2 col-xs-3 col-sm-2 hr title" id="hours">hr</div>
 								<div class="col-md-2 col-xs-3 col-sm-2 min title" id="minutes">min</div>
 								<div class="col-md-4 col-xs-3 col-sm-4 sec title" id="seconds">sec</div>
@@ -124,11 +124,8 @@
 				<div class="footer-wrapper">
 					<div class="container">
 						<div class="row">
-							<div class="col-md-6">
+							<div class="col-md-12">
 								<p class="copy-right text-center">&copy; 2023 SoarLift. All rights reserved.</p>
-							</div>
-							<div class="col-md-6">
-								<!-- <p class="develop text-center">Developed by <a href="http://themewagon.com">ThemeWagon <sup>TM</sup></a></p> -->
 							</div>
 						</div>
 					</div>
@@ -139,9 +136,46 @@
 		
 		<!--  js files -->
 
+		<script>
+			// Set the target date (January 26th)
+			var target_date = new Date("Jan 26, 2023").getTime();
+
+			// Update the count down every 1 second
+			var countdown = setInterval(function() {
+
+			// Get today's date and time
+			var current_date = new Date().getTime();
+
+			// Find the distance between now and the target date
+			var distance = target_date - current_date;
+
+			// Time calculations for days, hours, minutes and seconds
+			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+			// Display the result in the elements
+			document.getElementById("dday").innerHTML = days;
+			document.getElementById("dhour").innerHTML = hours;
+			document.getElementById("dmin").innerHTML = minutes;
+			document.getElementById("dsec").innerHTML = seconds;
+
+			if(days <= 1) {
+				document.getElementById("days").innerHTML = "day";
+			}
+
+			// If the count down is finished, write some text
+			if (distance < 0) {
+				clearInterval(countdown);
+				document.getElementById("count2").innerHTML = "EXPIRED";
+			}
+			}, 1000);
+
+		</script>
+
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/timer.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
 
 	
