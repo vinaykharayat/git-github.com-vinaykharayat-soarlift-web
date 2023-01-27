@@ -114,12 +114,12 @@ p{
     vertical-align: middle;
 }
 
-.subsribe-btn:hover {
+.whatsapp-btn:hover {
     background: rgba(87, 87, 87, 0.63);
     color: #fff;
 }
 
-.subscribe-btn:focus{
+.whatsapp-btn:focus{
     border: none;
 }
 
@@ -160,6 +160,15 @@ a.title {
 .header-text{
     margin-bottom: 50px;
     margin-top: 40px;
+}
+
+.slogan-text{
+    font-size: 64px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 500;
+    color: #fff;
+    text-transform: capitalize;
+    text-align: start;
 }
 
 .service-text{
